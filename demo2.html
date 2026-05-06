@@ -6,8 +6,96 @@
     <title>Javascript</title>
 </head>
 <body>
+    <h1>Object</h1>
+
     <script>
-        alert("Hello there");
+
+        //1 create an object student with  porperties:id,name,coures print them
+        const student={
+            id: 100,
+            name: "Arunkumar",
+            coures: "computer seience"
+         }
+         console.log(student);
+         console.log(student.id);
+         console.log(student.name);
+         console.log(student.coures);
+
+        //2 function book with porperties titel,anthor,price.create 2book object
+        function book(title, anthor ,price){
+            this.title=title
+            this.anthor=anthor
+            this.price=price
+        }
+            let a = new book("javascript","skills",10000);
+            let b = new book("java","skills",10000);
+        
+        console.log(a);
+        console.log(b);
+
+        //3 Marge address and contact Objects
+
+        const address ={
+            name: "arun",
+            city: "TVM"
+        }
+        const contact={
+            phone :8072724823,
+            email : "arunkumar@gamil.com"
+        }
+        const mergedobject=Object.assign(address,contact);
+        const spreadobject={...address,...contact}
+
+        //4 Freeze two objects and try modifying its porperty .Observe the result
+
+        let user={
+            name:"arun",
+            age:19
+        };
+        Object.freeze(user);
+        user.name="pavi";
+        console.log(user);
+
+        //5 Object keys()
+        let person ={
+            name:"pavi",
+            age:17,
+            city:"chennai"
+        }
+        let keys=Object.keys(person)
+        let values=Object.values(person)
+        console.log(keys);
+        console.log(values);
+        
+        //6 Convert an object into a 2D array using object.entries()
+         let car ={
+            name:"pavi",
+            age:17,
+            city:"chennai"
+        }
+        let entries=Object.entries(car)
+        console.log(entries);
+
+        //7 Object using for...in and print keys and values
+         let product ={
+            name:"pavi",
+            age:17,
+            city:"chennai"
+        };
+        for (let key in product){
+            console.log(key +":"+product[key]);
+            
+        }
+        
+        
+        
+        
+        
+        
+         
+         
+         
+        
     </script>
     
 </body>

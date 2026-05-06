@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulation</title>
+</head>
+<body>
+    <h1>Encapsulation</h1>
+    <script>
+
+        //Empolyee with a private field #salary. Add mathods to display withdraw salay Demonstrate encapsulation
+        
+        class empolyee {
+            #salary = 10000;
+            
+            constructor(salary){
+                this.#salary=salary;
+            }
+            display()
+            {
+                console.log(this.#salary);
+            }
+            withdraw(amount){
+                if(this.#salary<=amount){
+                this.#salary-=amount;
+
+                console.log("withdraw",amount);                
+            }else{
+                console.log("Insufficient balance");
+                
+            }
+            
+        }
+    }
+
+    let add =new empolyee(20000);
+    add.display()
+    add.withdraw(50000);
+    add.display()
+
+    //2 spread operator to merge two arrays [1,2] and [3,4]
+
+    const arr =[1,2];
+    const arr2 =[3,4];
+
+    const mergedarray=[...arr,...arr2]
+    console.log(mergedarray);
+
+    //3 function using rest parameters that accepte any number arguments and print then
+    function insittue(...number){
+        console.log(...number);
+    } 
+    insittue(1,2,3)
+
+    //4 create an object {academy:"FIIT",branch:"TVM"} and spread operato
+    const adds={academy:"FIIT",branch:"TVM"}
+
+    const mergedAll={...adds};
+    console.log(mergedAll);
+
+    //5 Object the destructing by extracting name and cour
+
+    const obj={name:"priya",course:"python"}
+
+    const{name,course}=obj;
+    console.log(name);
+    console.log(course);
+
+    //6
+    let str=`hello,my name is Arun and I study python fullstack `
+    console.log(str);
+    
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+
+    </script>
+</body>
+</html>

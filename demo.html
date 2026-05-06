@@ -6,6 +6,74 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Demo html</h1>
+    <h1>Class & Object </h1>
+
+    <script>
+        
+        let str ="hello world";
+
+       //1 Create a string "hello world" and print its length
+       console.log(str.length);
+
+       //2 Replace "world" and "javascript"
+       console.log(str.replace("hello","javascript"));
+
+       //3 Extract substring "Hello" and substring() and slice
+       console.log(str.substring (0,5));
+       console.log(str.slice (0,5));
+
+       //4 Convert a string to uppercase and lowercase 
+       console.log(str.toUpperCase());
+       console.log(str.toLowerCase());
+
+       //5 Split a sentence into words and print them as an array
+       console.log(str.split(""));
+
+       //6 Check if a string strats with "Hello" and "Script"
+       console.log(str.startsWith("hello"));
+       console.log(str.endsWith("script"));
+
+       //7 Trim extra spaces from "Welcome" and print result
+       console.log("Welcome".trim());
+
+       ///////// Class & Object \\\\\\\\\\
+
+      //8 Create class bank
+      class bank{
+        constructor(balance,bankname){
+           console.log(`Balance is ${balance} ,${bankname}`);
+        }
+         display(){
+            console.log("bank class");
+        }
+      }
+
+      //9 Extend bank into account
+     class Account extends bank{
+        constructor(balance,bankname,AccountType){
+            super(balance,bankname)
+            this.AccountType=AccountType;
+        }
+         display(){
+            console.log(`Account Type ${AccountType},balance ${balance}`);            
+        }
+     
+      parentDisplay(){
+        super.display();
+
+      }
+    }
+
+       let acc =new Account(1000,"asd");
+       acc.display();
+
+       let bank1=new Account(100,"sib")
+       bank1.display();
+
+
+
+      
+        
+    </script>
 </body>
 </html>
