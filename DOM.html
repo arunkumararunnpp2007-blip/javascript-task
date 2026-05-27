@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM EVENT</title>
+</head>
+<body>
+ <!-- <h1>DOM document object model</h1>
+
+ <p  id="one">change the text</p>
+
+ <button id="button">click me</button> -->
+
+ <form id="myform" action="./DOM.html">
+    <input id="input" type="text" placeholder="Enter the name">
+    <button type="submit">submit</button>
+ </form>
+
+
+
+ <button id="two">change me</button>
+ <p id="inner">InnterHTML</p>
+<ul>
+   
+
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    <li>item</li>
+    
+</ul>
+
+
+<div  id="from">
+    click below button
+</div>
+
+<button id="button">click me button</button>
+
+
+<input type="text" placeholder="enter the value">
+
+
+ <script>
+
+    //7
+
+    
+
+
+
+
+   //6
+   const but=document.getElementById("button");
+   const from=document.getElementById("from");
+    
+   but.addEventListener("click",function(){
+    // from.clickList.add("hidden")
+     from.classList.toggle("hidden")
+   })
+   
+
+
+
+    //2
+
+    document.getElementById("myform").onsubmit=function(){
+        alert("from submitted");
+    }
+
+  let queryall=document.querySelectorAll("li")
+  let query=document.querySelector("li")
+
+  console.log(queryall);
+  console.log(query.tagName);
+
+  //3
+
+  document.getElementById("inner").innerHTML="<b>hello</b>";
+
+//   document.getElementById("inner").textContent="<b>arun</b>;"
+  
+  //4
+
+  two.addEventListener("mouseover",function(event){
+    two.style.backgroundColor="yellow";
+  })
+
+    two.addEventListener("mouseout",function(event){
+    two.style.backgroundColor="";
+  })
+
+
+  
+
+    // const one=document.getElementById("one");
+    // const but=document.getElementById("button");
+
+    // button.addEventListener("click",function(){
+    
+    // })
+
+ </script>
+
+    
+</body>
+</html>

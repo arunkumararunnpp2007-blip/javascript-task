@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM </title>
+</head>
+<body>
+
+    <input type="text" id="inp" placeholder="Enter any text">
+
+    <button id="button">Add</button>
+   
+
+
+    <script>
+
+        const but = document.getElementById("button");
+        const inpt = document.getElementById("inp");
+        
+
+
+        but.addEventListener("click" , function(){
+            console.log("WOrking");
+    
+
+            console.log(inpt.value);
+
+            let p = document.createElement("p");
+
+            p.innerText = inpt.value; 
+
+           let btn= document.createElement("button")
+           btn.textContent="Delete";
+
+           btn=addEventListener("click",function(event){
+            event.stopPropagation()
+            button.remove()
+           })
+
+
+            document.body.appendChild(p);
+
+            inpt.value ="";
+
+
+
+            
+            
+        })
+
+
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>
