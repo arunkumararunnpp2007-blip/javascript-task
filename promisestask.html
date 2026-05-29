@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+<body>
+    <h1>promise</h1>
+
+    <ul id="data"></ul>
+    <script>
+        async function fetchData(){
+            return "data fetchdata";
+
+        }
+        async function displayData(){
+            const data =await fetchData();
+            console.log(data);
+            
+        }
+
+        displayData();
+        let count=0;
+        const continer=document.getElementById("data")
+
+        async function fetchdata(){
+            try{
+            const result=await fetch(
+              " https://jsonplaceholder.typicode.com/todos"
+            );
+            const data=await  result.json();
+            continer.innerHTML=`<h2>${data.id}</h2> <h2>${data.title}</h2>`;
+            data.slice(0,10).forEach(element => {
+                const list=document.createElement("li");
+                list.textContent=element.title;
+
+                if(!element.completed){
+                    list.style.textDecoration="line-through";
+                }
+                continer.appendChild(list);
+            });
+            console.log(result);
+            console.log(data);
+            localStorage.setItem("data",JSON.stringify(data));
+
+            }catch(error){
+            console.log(error);
+            
+        }
+    }
+ fetchdata();
+ function fetchdet(){
+    return new Promise((resolve)=>{
+        setTimeout(()=>{
+            resolve(1)
+        },3000);
+    });
+ }
+ Promise.all([fetchdata(), fetchdet()]).then((res)=>
+ console.log(res),
+);
+        
+    </script>
+</body>
+</html>
