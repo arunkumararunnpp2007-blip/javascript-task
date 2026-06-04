@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session</title>
+</head>
+<body>
+    <h1>Session</h1>
+
+    <form onsubmit="return validateForm()">Name:
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <button type="submit">Submit</button>
+        <p id="content"></p>
+        <button id="joke">Next joke</button>
+
+    </form>
+
+        <script>
+
+            const content=document.getElementById("content");
+            const button=document.getElementById("joke");
+
+            function validateForm(){
+                const nameField=document.getElementById("name").value;
+
+                if(nameField === ""){
+                    alert("name field is required");
+                    return false;
+                }
+                alert("Form sumitted")
+                return true;
+            }
+
+            sessionStorage.setItem("name","arun");
+
+            console.log(sessionStorage.getItem("name"));
+
+            sessionStorage.removeItem("name");
+
+            sessionStorage.clear();
+
+            async function fetchData() {
+                try{
+                const result =await fetch(" https://icanhazdadjoke.com/slack");
+
+                console.log(result);
+
+                const data=await result.json();
+                console.log(data);
+
+                console.log(data.attachments[0].text);
+                content.textContent=data.attachments[0].text;
+                
+                }catch(error){
+                    console.log(error.message);
+                    
+                }   
+                
+            }
+            button.addEventListener("click", ()=>{
+            fetchData();
+             });
+
+
+
+
+        </script>
+
+</body>
+</html>
